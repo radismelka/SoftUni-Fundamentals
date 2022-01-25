@@ -1,0 +1,8 @@
+list_of_integers = list(map(int, input().split()))
+count = int(input())
+
+for num in range(count):
+    min_number = min(list_of_integers)
+    list_of_integers.remove(min_number)
+
+print(", ".join(list(map(str,list_of_integers))))
