@@ -79,13 +79,12 @@ while not command == "end":
                 for num in range(len(numbers)):
                     if numbers[num] % 2 == 1:
                         result.append(numbers[num])
-            else:
+            elif even_or_odd == "even":  # It can be written with "else" too.
                 for num in range(len(numbers)):
                     if numbers[num] % 2 == 0:
-                        if count > 0:
-                            result.append(numbers[num])
-            print(result[-count:]) # TO DO МНОГО ВАЖНО тук брои отзад напред
-            # защото по условие на задачата returns the last count even/odd elements
+                        result.append(numbers[num])
+            print(result[-count:]) # it counts backwards
+            # because the requirement is to returns the last count even/odd elements
             # example: [1, 8, 2, 3] -> "last 2 odd" -> print [1, 3]
             # or example: [1, 8, 2, 3, 6, 9] -> "last 2 odd" -> print [3, 9]
     command = input()
