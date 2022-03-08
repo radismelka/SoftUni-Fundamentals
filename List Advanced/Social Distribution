@@ -1,0 +1,21 @@
+population = [int(x) for x in input().split(", ")]
+minimum_wealth = int(input())
+
+is_equal = True
+
+for poor in range(len(population)):
+    index = population.index(max(population))
+    check = sum(population) - (minimum_wealth * len(population))
+    if check < 0:
+        is_equal = False
+    elif max(population) > minimum_wealth:
+        if population[poor] < minimum_wealth:
+            desire_wealth = abs(population[poor]-minimum_wealth)
+            population[poor] += desire_wealth
+            population[index] -= desire_wealth
+
+under_minimum_wealth = min(population)
+if under_minimum_wealth >= minimum_wealth:
+    print(population)
+else:
+    print("No equal distribution possible")
