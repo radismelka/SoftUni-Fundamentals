@@ -1,0 +1,45 @@
+rows_in_the_field = int(input())
+
+field = [] 
+# data about the ships, every number represent the health
+
+for i in range(rows_in_the_field):
+    field.append([int(x) for x in input().split()])
+
+attacked_squares = input().split()
+# data with coordinates for attack
+
+count_destroyed_ships = 0
+for square in range(len(attacked_squares)):
+    row, col = attacked_squares[square].split("-")
+    row = int(row)
+    col = int(col)
+    if not field[row][col] == 0:
+        field[row][col] -= 1
+        if field[row][col] == 0:
+            count_destroyed_ships += 1
+
+print(count_destroyed_ships)
+
+"""
+input:
+3
+1 0 0 1
+2 0 0 0
+0 3 0 1
+0-0 1-0 2-1 2-1 2-1 1-1 2-1
+
+output: 2
+"""
+"""
+input:
+5
+1 0 5 0 1
+6 3 9 0 0
+7 9 4 3 2
+1 0 0 4 9
+5 6 0 3 5
+0-1 0-2 0-2 0-2 0-2 0-2 3-0
+
+output: 2
+"""
